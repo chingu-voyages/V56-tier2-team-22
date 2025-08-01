@@ -1,69 +1,49 @@
-# React + TypeScript + Vite
+# MediPhase
+It's inevitable that at some point in your life you or a loved one will have to undergo some type of surgery - either as an inpatient or an outpatient. In this event you or a companion, depending on who's having the surgery, will be in a hospital waiting room while the surgery is being performed.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Enter MediPhase. MediPhase helps medical teams monitor a patient's surgery journey with ease. MediPhase provides real-time updates on surgical patient status. 
 
-Currently, two official plugins are available:
+Checked In, Pre-Procedure, In Progress, Closing, Recovery and Complete. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Simple, secure, and compassionate care at your medical team's fingertips.
 
-## Expanding the ESLint configuration
+## Overview 
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+As part of Chingu Voyage 56, our team is building MediPhase. 
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features 
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### UI/UX 
+// TODO add UML Diagrams and Figma Images here 
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Screens
+- [ ] Home Screen 
+- [ ] Patient Information Screen
+- [ ] Patient Status Update Screen
+- [ ] Patient Status Display Screen 
+- [ ] Validation and Error Handling
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+## Folder Structure 
+
+The app uses the following folder structure: 
+
+`/src` - All React source code files in there
+`/src/screens` - In this folder, have a subfolder for each visual screen
+`/src/components` - Any reusable components that will be used in multiple components/screens
+`/src/hooks` - React hooks that we make
+
+## Storage
+* As a more frontend-focused app, we're using local storage for any data that needs to be persisted. 
+* If any cross-component data sharing is required, we can use React Context API for now. 
+
+
+## Dependencies
+
+
+
+## Running Mediphase 
+
+
+
