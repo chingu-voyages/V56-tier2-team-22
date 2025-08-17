@@ -24,11 +24,10 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) {
-      return;
+    if (user) {
+      navigate('/patient-status');
     }
-
-    navigate('/patient-status');
+    
   }, [user,navigate]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
