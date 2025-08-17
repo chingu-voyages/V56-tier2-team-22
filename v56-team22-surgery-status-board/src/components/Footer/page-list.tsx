@@ -1,10 +1,12 @@
-type Page = {
-  name: string;
+import { Link } from 'react-router';
+
+type Navlink = {
+  label: string;
   href: string;
 };
 
 type PagesListProps = {
-  pages: Page[];
+  pages: Navlink[];
 };
 
 export const PageList = ({ pages }: PagesListProps) => {
@@ -13,13 +15,13 @@ export const PageList = ({ pages }: PagesListProps) => {
       <h1 className="px-4 mb-3 text-lg font-semibold text-white ">Pages</h1>
       <div className="flex flex-col gap-2 px-4">
         {pages.map((page, index) => (
-          <a
+          <Link
             key={index}
-            href={page.href}
+            to={page.href}
             className="font-mono text-md hover:text-white transition-colors"
           >
-            {page.name}
-          </a>
+            {page.label}
+          </Link>
         ))}
       </div>
     </div>
