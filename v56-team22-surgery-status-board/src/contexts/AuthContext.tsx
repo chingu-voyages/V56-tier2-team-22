@@ -1,29 +1,10 @@
-import { createContext, useEffect, useState } from 'react';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import users from '../components/SignIn/users.json';
 import { AuthError } from '@/lib/authUtils';
-import type { Role } from '@/constant/nav';
+import { AuthContext, type User, INVALID_EMAIL_MSG, INVALID_PASSWORD_MSG } from './auth-context-types';
 import { v4 as uuidv4 } from 'uuid';
 
-type User = {
-  id: string;
-  email?: string;
-  role: Role;
-} | null;
-
-export const INVALID_EMAIL_MSG =
-  'A user account associated with this email address does not exist.';
-export const INVALID_PASSWORD_MSG =
-  'Invalid password entered. Please try again.';
-
-export type AuthContextType = {
-  user: User;
-  signIn: (email: string, password: string) => Promise<User>;
-  signInAsGuest: () => void;
-  signOut: () => void;
-};
-
-//eslint-disable-next-line
-export const AuthContext = createContext<AuthContextType | null>(null);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User>(() => {
     const storedUser = localStorage.getItem('user');
@@ -38,14 +19,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, [user]);
 
-  const signIn = (email: string, password: string) => {
+  const signIn = (email: string, inputPassword: string) => {
     const storedUser = users.find((credential) => credential.email === email);
 
     if (!storedUser) {
       return Promise.reject(new AuthError(INVALID_EMAIL_MSG));
     }
 
-    if (storedUser.password !== password) {
+    if (storedUser.password !== inputPassword) {
       return Promise.reject(new AuthError(INVALID_PASSWORD_MSG));
     }
     //eslint-disable-next-line
