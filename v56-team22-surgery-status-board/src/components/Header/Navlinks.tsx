@@ -1,4 +1,5 @@
 import { navByRole, type Role } from '@/constant/nav';
+import { Link } from 'react-router';
 
 type NavLinksProps = {
   role: Role;
@@ -9,13 +10,13 @@ const NavLinks = ({ role }: NavLinksProps) => {
   return (
     <>
       {links.map((link) => (
-        <a
+        <Link 
           key={link.href}
-          href={link.href}
+          to={link.href}
           className="text-primary hover:underline underline-offset-4 font-bold"
         >
           {link.label}
-        </a>
+        </Link>
       ))}
     </>
   );
