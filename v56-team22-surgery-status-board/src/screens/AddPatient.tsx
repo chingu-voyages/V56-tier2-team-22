@@ -42,12 +42,12 @@ const AddPatient = () => {
       duration: 2000,
     });
     setTimeout(() => {
-      navigate('/patient-status-board');
+      navigate('/patient-status');
     }, 2000);
   };
 
   const handleCancel = () => {
-    navigate('/patient-status-board');
+    navigate('/patient-status');
   };
 
   return (
